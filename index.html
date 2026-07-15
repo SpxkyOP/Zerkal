@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi Mapa</title>
+<meta charset="utf-8">
+<title>Zerkal Map</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+}
+</style>
 </head>
+
 <body>
-    <h1>Hola mundo</h1>
-    <p>Mi página web funciona.</p>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+const map = L.map('map').setView([19.4326, -99.1332], 6);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+L.marker([19.4326, -99.1332])
+  .addTo(map)
+  .bindPopup("Ciudad de México");
+</script>
+
 </body>
 </html>
