@@ -1,40 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="utf-8">
-<title>Zerkal Map</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZERKAL Command Center</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
 <style>
-html, body {
-  margin: 0;
-  height: 100%;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
-#map {
-  width: 100%;
-  height: 100vh;
+body{
+background:#0b0f0b;
+color:#00ff88;
+overflow:hidden;
 }
+
+#topbar{
+height:60px;
+background:#111;
+border-bottom:2px solid #00ff88;
+display:flex;
+align-items:center;
+padding-left:20px;
+font-size:22px;
+font-weight:bold;
+}
+
+#container{
+display:flex;
+height:calc(100vh - 60px);
+}
+
+#sidebar{
+width:260px;
+background:#131313;
+border-right:2px solid #00ff88;
+padding:15px;
+}
+
+.menu-btn{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+background:#1b1b1b;
+border:1px solid #00ff88;
+color:#00ff88;
+cursor:pointer;
+}
+
+.menu-btn:hover{
+background:#00ff88;
+color:black;
+}
+
+#content{
+flex:1;
+position:relative;
+}
+
+#map{
+width:100%;
+height:100%;
+}
+
+.panel{
+position:absolute;
+top:20px;
+right:20px;
+width:260px;
+background:rgba(0,0,0,0.85);
+border:1px solid #00ff88;
+padding:10px;
+z-index:999;
+}
+
+.panel h3{
+margin-bottom:10px;
+}
+
+.status{
+margin-top:5px;
+}
+
+.green{
+color:#00ff88;
+}
+
+.red{
+color:red;
+}
+
+.yellow{
+color:yellow;
+}
+
 </style>
 </head>
 
 <body>
 
+<div id="topbar">
+ZERKAL COMMAND CENTER
+</div>
+
+<div id="container">
+
+<div id="sidebar">
+
+<button class="menu-btn">🗺️ Mapa Táctico</button>
+
+<button class="menu-btn">📋 Operaciones</button>
+
+<button class="menu-btn">⚠️ Eventos</button>
+
+<button class="menu-btn">📡 Inteligencia</button>
+
+<button class="menu-btn">📊 Estadísticas</button>
+
+<button class="menu-btn">⚙️ Administración</button>
+
+</div>
+
+<div id="content">
+
 <div id="map"></div>
+
+<div class="panel">
+<h3>Estado Operacional</h3>
+
+<div class="status green">
+● Sistema Online
+</div>
+
+<div class="status yellow">
+● Sincronización Local
+</div>
+
+<div class="status">
+Jugadores: --
+</div>
+
+<div class="status">
+Eventos Activos: 0
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-const map = L.map('map').setView([19.4326, -99.1332], 6);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap'
-}).addTo(map);
+const map = L.map('map').setView([19.4326,-99.1332],6);
 
-L.marker([19.4326, -99.1332])
-  .addTo(map)
-  .bindPopup("Ciudad de México");
+L.tileLayer(
+'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+attribution:'ZERKAL'
+}
+).addTo(map);
+
+L.marker([19.4326,-99.1332])
+.addTo(map)
+.bindPopup("Centro de Operaciones");
+
 </script>
 
 </body>
