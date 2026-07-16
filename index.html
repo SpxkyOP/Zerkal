@@ -1,125 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ZERKAL</title>
-
-<style>
-
-body{
-margin:0;
-background:#090909;
-color:white;
-font-family:Segoe UI, sans-serif;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.container{
-width:90%;
-max-width:1200px;
-}
-
-.logo{
-font-size:4rem;
-font-weight:700;
-letter-spacing:8px;
-}
-
-.subtitle{
-color:#888;
-margin-top:10px;
-margin-bottom:50px;
-}
-
-.status{
-display:flex;
-gap:30px;
-margin-bottom:50px;
-}
-
-.card{
-flex:1;
-background:#111;
-border:1px solid #222;
-padding:25px;
-border-radius:12px;
-}
-
-.value{
-font-size:2rem;
-margin-top:10px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.btn{
-background:#111;
-border:1px solid #333;
-padding:30px;
-border-radius:12px;
-cursor:pointer;
-transition:0.3s;
-font-size:1rem;
-}
-
-.btn:hover{
-transform:translateY(-4px);
-border-color:#00ffaa;
-}
-
-</style>
-</head>
-<body>
-
-<div class="container">
-
-<div class="logo">ZERKAL</div>
-
-<div class="subtitle">
-Command & Intelligence System
-</div>
-
-<div class="status">
-
-<div class="card">
-Servidor
-<div class="value">ONLINE</div>
-</div>
-
-<div class="card">
-Operadores
-<div class="value">--</div>
-</div>
-
-<div class="card">
-Eventos
-<div class="value">0</div>
-</div>
-
-</div>
-
-<div class="grid">
-
-<div class="btn">🗺️ MAPA</div>
-<div class="btn">📋 OPERACIONES</div>
-<div class="btn">⚠️ EVENTOS</div>
-
-<div class="btn">📡 INTEL</div>
-<div class="btn">📊 ESTADÍSTICAS</div>
-<div class="btn">⚙️ ADMIN</div>
-
-</div>
-
-</div>
-
-</body>
-</html>
+    <button class="tool" id="btn-grid" title="Toggle grid" aria-label="Grid">
+      <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    </button>
+    <label class="tool" title="Import map image" aria-label="Import map">
+    <label class="tool tool-wide" id="btn-upload" title="Upload map (JPG/PNG)" aria-label="Upload map">
+      <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      <input type="file" id="file-map" accept="image/*" hidden />
+      <span class="tool-label">Upload Map</span>
+      <input type="file" id="file-map" accept="image/jpeg,image/png,image/*" hidden />
+    </label>
+    <button class="tool" id="btn-clear" title="Clear all" aria-label="Clear">
+      <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7zm3-3h6v3H9z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+  </aside>
+  <div id="coords" aria-live="polite">X: —, Y: —</div>
+  <div id="hint">Load a map image → Import • Click a tool → click on map</div>
+  <div id="hint">Upload the Zimnitrita map (JPG/PNG) → then pick a tool and click the map</div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
