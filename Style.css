@@ -1,0 +1,16 @@
+
+#toolbar .tool.active { background: rgba(240,180,41,0.15); border-color: var(--accent); color: var(--accent); }
+#toolbar .tool svg { width: 20px; height: 20px; fill: currentColor; }
+#toolbar .divider { height: 1px; background: var(--border); margin: 4px 2px; }
+#toolbar .tool-wide { width: auto; padding: 0 12px; gap: 6px; }
+#toolbar .tool-label { font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+#coords {
+  position: absolute; bottom: 12px; right: 12px; z-index: 1000;
+  #toolbar { top: auto; bottom: 16px; left: 50%; transform: translateX(-50%);
+    flex-direction: row; }
+  #toolbar .divider { width: 1px; height: auto; margin: 2px 4px; }
+  #toolbar .tool-label { display: none; }
+  #toolbar .tool-wide { width: 40px; padding: 0; }
+  #hint { top: 12px; bottom: auto; }
+  #coords { top: 12px; right: 12px; bottom: auto; }
+}
